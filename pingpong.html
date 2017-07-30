@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Js </title>
+</head>
+<body>
+	<div id="ping">PING PONG</div>
+	<div id="out">
+	<div id="pad">
+	</div>
+	<div id="in">
+	
+	</div>
+	<button id="buttn"> Start Game </button>
+	<div id="pad2">
+	</div>
+	</div>
+
+
+
+
+</body>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		height: 100vh - 200px;
+		width: 100vw - 250px;
+	}
+	#ping{
+		position: fixed;
+		left: 762px;
+		font-size: 40px;
+
+	}
+	#out{
+		box-sizing: border-box;
+		margin-top: 200px;
+		margin-left: 250px;
+		height: 600px;
+		border: 50px solid #28FFE1;
+		width: 1300px;
+		
+	}
+	#pad{
+		position: absolute;
+		box-sizing: border-box;
+		height: 80px;
+		width: 20px;
+		border: 1px solid black;
+		background-color: #C5E4E0;
+		margin-top: 200px;
+		margin-left: 250px;
+	}
+	#pad2{
+		position: absolute;
+		box-sizing: border-box;
+		height: 80px;
+		width: 20px;
+		border: 1px solid black;
+		background-color: #C5E4E0;
+		margin-top: 200px;
+		margin-left: 250px;
+	}
+	#in{
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		background: #00C9FF;  
+		background-color: #00C9FF;
+		position: fixed;
+		display: none;
+		margin-top: 200px;
+		margin-left: 250px;
+	}
+	#buttn{
+		position: absolute;
+		height: 50px;
+		width: 150px;
+		padding: 16px ;
+		top: 275px;
+		left: 540.5px;
+		color: white;
+		background-color: #4d4d4d;
+		margin-top: 200px;
+		margin-left: 270px;		
+	}
+	#buttn:hover{
+		background-color: #669999;
+	}
+</style>
+<script type="text/javascript">
+	var inn=document.getElementById('in');
+	inn.style.top="100px";
+	inn.style.left="620px";
+	function move(event){
+		if(event.key=='ArrowDown')
+		{
+			if(parseFloat(pad2.style.top.slice(0,-2))+10<=470)
+			{
+				pad2.style.top=parseFloat(pad2.style.top.slice(0,-2))+10+'px';
+			}
+		}
+		if(event.key=='ArrowUp')
+		{	
+			if(parseFloat(pad2.style.top.slice(0,-2))-10>=50)
+			{
+				pad2.style.top=parseFloat(pad2.style.top.slice(0,-2))-10+'px';
+			}
+		}
+		if(event.key=='w')
+		{	
+			if(parseFloat(pad.style.top.slice(0,-2))-10>=50)
+			{
+				pad.style.top=parseFloat(pad.style.top.slice(0,-2))-10+'px';
+			}
+		}
+		
+		if(event.key=='s')
+		{
+			if(parseFloat(pad.style.top.slice(0,-2))+10<=470)
+			{
+				pad.style.top=parseFloat(pad.style.top.slice(0,-2))+10+'px';
+			}
+		}
+	}
+	var pad=document.getElementById('pad');
+	var pad2=document.getElementById('pad2');
+	pad.style.top="260px";
+	pad.style.left="50px";
+	pad2.style.top="260px";
+	pad2.style.left="1231px";
+	document.body.addEventListener('keydown',move);
+	var vx=-1;
+	var vy=1;
+	var number;
+	function roll(){
+		var curx=parseFloat(inn.style.left.slice(0,-2));
+		var cury=parseFloat(inn.style.top.slice(0,-2));
+		var tempx=curx+vx;
+		var tempy=cury+vy;
+		inn.style.left=tempx+'px';
+		inn.style.top=tempy+'px';
+		if(tempy==520)
+		{
+			vy=-1*vy;
+		}
+		if(tempy==50)
+		{
+			vy=-1*vy;
+		}
+		if(tempx==70)
+		{
+			if(tempy-parseFloat(pad.style.top.slice(0,-2))>=0 && tempy-parseFloat(pad.style.top.slice(0,-2))<=90)
+			{
+				vx=-1*vx;
+			}
+			else if(tempy-parseFloat(pad.style.top.slice(0,-2))<0 && tempy-parseFloat(pad.style.top.slice(0,-2))>=-20)
+			{
+				vx=-1*vx;
+			}
+		}
+		if(tempx==50)
+		{
+			alert('Second Player Wins');
+			reset();
+		}
+		if(tempx==1201)
+		{
+			if(tempy-parseFloat(pad2.style.top.slice(0,-2))>=0 && tempy-parseFloat(pad2.style.top.slice(0,-2))<=90)
+			{
+				vx=-1*vx;
+			}
+			else if(tempy-parseFloat(pad2.style.top.slice(0,-2))<0 && tempy-parseFloat(pad2.style.top.slice(0,-2))>=-20)
+			{
+				vx=-1*vx;
+			}
+		}
+		if(tempx==1221)
+		{
+			alert('First Player Wins');
+			reset();
+		}
+	}
+	function reset(){
+		inn.style.top="100px";
+		inn.style.left="620px";
+		vx=-1;
+		vy=1;
+		pad.style.top="160px";
+		pad.style.left="50px";
+		pad2.style.top="160px";
+		pad2.style.left="1231px";
+		clearInterval(number);
+		inn.style.display="none";
+		button.style.display="block";
+	}
+	var button=document.getElementById('buttn');
+	function start(event){
+		inn.style.display="block";
+		button.style.display="none";
+		number=setInterval(roll,4);
+	}
+	button.addEventListener('click',start);
+</script>
+</html>
