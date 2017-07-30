@@ -1,0 +1,147 @@
+		* {
+			margin: 0px;
+			padding: 0px;
+			border:	0px;
+			box-sizing: border-box;
+		}	
+		html , body {
+			width: 100%;
+			height: 100%
+		}
+		.parallax {
+			background-attachment: fixed;
+			background-position: center;
+    		background-repeat: no-repeat;
+    		background-size: cover;
+		}
+		.header{
+			height: 90%;
+			width: 100%;
+			background-image: url("port.jpg");
+
+		}
+		.filler-image1 {
+			height: 400px;
+			width: 100%;
+			background-image: url("pixel.jpg");
+		}
+		.filler-image2 {
+			height: 400px;
+			width: 100%;
+			background-image: url("img2.jpg");
+		}
+		.filler-image3 {
+			height: 400px;
+			width: 100%;
+			background-image: url("port.jpg");
+		}
+		div.container {
+			width: 100%;
+			height: 100%;	
+			padding: 5%;	
+			position: fixed;
+		}
+		div.container div, {
+			display: inline-block;
+		}
+		div.header-text {
+			display: inline-block;
+			float: left;
+			-webkit-animation-delay: 0.5s;
+		}
+		.header-sub-text {
+			color: white;
+			font-family: 'Questrial', cursive;
+			font-size: 20px;
+			line-height: 25px;
+		}
+		div.header-text h1 {
+			text-align: left;
+			color: white;
+			font-family: 'Questrial', cursive;
+			font-size: 90px;
+		}
+		div.profile-image {	
+			background-image: url("profile.jpg");
+			width: 350px;
+			height: 350px;
+			background-size:contain;
+			border-radius: 50%;
+			float: right;
+			-webkit-animation-delay: 1s;
+		}
+		div.diagonal {
+			display: block;
+			float: left;
+			width: 100%;
+			transform:skew(0deg,5deg);
+			background-color: white;
+			margin-top: -100px;
+			z-index: 100;
+		}
+		div.content-wrapper {
+			display: block;
+			float: left;
+			width: 100%;
+			margin-top: 100px;
+			transform: skew(0,-5deg);
+		}
+		.section-heading {
+			text-align: center;
+			font-family: 'Questrial', cursive;
+			font-size: 50px;
+			margin-right: 10%;
+			margin-left: 10%;
+			font-weight: 800;
+			margin: 20px;	
+		}
+		.section-sub-heading {
+			text-align: center;
+			font-family: 'Questrial', cursive;
+			font-size: 30px;
+			padding:10px;
+			font-weight: 600;
+		}
+		.section-text {
+			font-family: 'Questrial', cursive;
+			font-size: 20px;
+			padding: 30px;
+			margin-right: 10%;
+			margin-left: 10%;
+		}
+		.skill-image-container {
+			margin-left:200px;
+			padding-left: 50px;
+		}
+		.skill-image {
+			max-height: 125px;
+			max-width: 125px;
+			margin: 25px;
+		}
+		.education-container {
+			display: flex;
+			justify-content: space-around;
+		}
+		.education-block {
+			width: 30%;
+			height: 350px;
+			margin-bottom: 50px;
+			background-color: lightgray;
+		}
+		section#contact ul {
+			padding: 60px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		section#contact ul li{
+			list-style: none;
+			padding: 50px;
+			box-sizing: border-box;
+		}
+		section#contact ul li a i {
+			color: gray;
+		}
+		section#contact ul li a i:hover {
+			color: blue;
+		}
